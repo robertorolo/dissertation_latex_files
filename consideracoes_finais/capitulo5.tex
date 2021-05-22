@@ -1,0 +1,30 @@
+\chapter{Considerações finais}
+
+Essa dissertação propôs como meta investigar a aplicabilidade da modelagem geológica implícita com funções distância assinaladas como método substituto ou auxiliar aos métodos clássicos de modelagem. Para tanto, foram apresentados dois objetivos específicos:
+
+\begin{enumerate}
+\item Operacionalizar o método no software geoestatístico de código aberto \textit{SGeMS},
+desenvolvendo um \textit{plug-in} funcional em \textit{python}.
+\item Conduzir um estudo de caso em um banco de dados real e verificar a qualidade do
+modelo gerado pela metodologia proposta, comparando-o a um modelo de referência.
+\end{enumerate}
+
+Quanto ao primeiro objetivo, um \textit{plug-in} foi desenvolvido e validado. É intuitivo e de fácil utilização. Uma alternativa mais amigável ao usuário em relação à rotina do \textit{GSLib} desenvolvida por \citeonline{maureira}.
+
+A partir do estudo de caso (\autoref{estudo_de_caso}) foi possível concluir que a modelagem geológica implícita com funções distância assinaladas é um método simples, rápido e de grande auxílio ao geomodelador. Apesar de não substituir completamente os métodos explícitos, o método gerou um modelo geológico bastante semelhante ao modelo criado explicitamente, tomado como referência, em poucos minutos e que pode ser facilmente replicado, permitindo simples checagem e auditoria externa. Ainda é possível avaliar, mesmo que de uma forma heurística, a incerteza associada ao modelo geológico e reproduzir proporções, evitando a introdução de viés.
+
+A modelagem geológica é uma etapa fundamental da avaliação depósitos minerais já que as estimativas e simulações dependem de domínios estacionários. Além disso, um bom modelo geológico pode trazer maior rentabilidade ao empreendimento, ou até mesmo ser crucial para a decisão de investir ou não baseada nos resultados do relatório de viabilidade, uma vez que a maior causa de fracasso nos empreendimentos mineiros é a falta de conhecimento a respeito do corpo mineralizado.
+
+\section{Recomendações para trabalhos futuros}
+
+Como recomendação para trabalhos futuros:
+
+\begin{itemize}
+\item Repetir o estudo de caso em banco de dados com menor densidade amostral e em depósitos que apresentem geologia mais complexa;
+\item Aprimorar o \textit{plug-in} desenvolvido, se possível, reescrevendo-o em \textit{C++}. Em especial o algoritmo do \textit{servo system}, que pode se tornar muito demorado em banco de dados volumosos. 
+\item Investigar outras formas, além da \textit{softmax transformation}, para medir incertezas nos contatos geológicos. \citeonline{mclennan2006implicit} propuseram uma metodologia para quantificar incertezas através da técnica de \textit{bootsrap}, enquanto \citeonline{munroe2012methodology,wildedeutschcalibrate} propuseram calibrar uma banda de incertezas ao longo dos contatos entre os domínios;
+\item Investigar a viabilidade de simular as distâncias assinaladas, avaliando assim, a incerteza baseada em múltiplas realizações equiprováveis do modelo geológico;
+\item Estudar a possibilidade de agregar ao método informação secundária, usada pelo geomodelador para construir modelos explícitos;
+\item Implementar o \textit{plug-in} independentemente de um \textit{grid} de interpolação, permitindo a criação de modelos (\textit{wireframes}) em qualquer resolução;
+\item Desenvolver técnicas híbridas de modelagem geológica, considerando as abordagens explícita, implícita e estocástica.
+\end{itemize}
